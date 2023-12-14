@@ -182,34 +182,34 @@ function formValidation(event)
     //validate first name
     if (!nameRegex.test(firstName)) 
     {
-      document.getElementById('firstNameErrorMsg').textContent = 'Please enter a valid first name.';
-      return;
+        document.getElementById('firstNameErrorMsg').textContent = 'Please enter a valid first name.';
+        return;
     } 
     else 
     {
-      document.getElementById('firstNameErrorMsg').textContent = '';
+        document.getElementById('firstNameErrorMsg').textContent = '';
     }
 
     //validate last name
     if (!nameRegex.test(lastName)) 
     {
-      document.getElementById('lastNameErrorMsg').textContent = 'Please enter a valid last name.';
-      return;
+        document.getElementById('lastNameErrorMsg').textContent = 'Please enter a valid last name.';
+        return;
     } 
     else 
     {
-      document.getElementById('lastNameErrorMsg').textContent = '';
+        document.getElementById('lastNameErrorMsg').textContent = '';
     }
 
     //validate email
     if (!emailRegex.test(email)) 
     {
-      document.getElementById('emailErrorMsg').textContent = 'Please enter a valid email address.';
-      return;
+        document.getElementById('emailErrorMsg').textContent = 'Please enter a valid email address.';
+        return;
     } 
     else 
     {
-      document.getElementById('emailErrorMsg').textContent = '';
+        document.getElementById('emailErrorMsg').textContent = '';
     }
 
     //submit form if all fields are valid
