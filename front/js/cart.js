@@ -1,14 +1,3 @@
-//fetch data
-//render DOM
-//event listener func that calculates and updates cart
-//event listener to delete item -> update cart -> call render DOM function
-//update totals function that updates and re-renders total based on current cart
-
-//event listener for submit button click -> form validation (string.trim on text fields before checking if empty; 
-                                            //regular expression to check email validity and name validity -> if invalid, throw alert
-                                            //-> fetch(URL, config) post .then (window.location.href=..)
-
-
 //get cart items from local storage
 function getCartFromLocalStorage() 
 {
@@ -33,7 +22,7 @@ function saveCartToLocalStorage(cart)
 }
 
 //fetch product information by ID from the API
-async function fetchProductInfo(productId) 
+function fetchProductInfo(productId) 
 {
     return fetch('http://localhost:3000/api/products/' + productId)
             .then(function(response) {
@@ -169,12 +158,15 @@ function formValidation(event)
     
     //prevent the default form submission action
     event.preventDefault();
+    event.stopPropagation();
 
     //get form field values to validate
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
     const email = document.getElementById('email').value;
-
+    
     //define regular expressions for validation
     const nameRegex = /^[a-zA-Z]+$/; //only letters for first and last name
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //basic email format
@@ -212,8 +204,47 @@ function formValidation(event)
         document.getElementById('emailErrorMsg').textContent = '';
     }
 
-    //submit form if all fields are valid
-    orderForm.submit();
+    //define contact
+    //save contact properties to contact object
+    const contact = {firstName, lastName, address, city, email};
+    
+    //define products
+    //pull IDs from cart into new products array
+    const products = getCartFromLocalStorage().map((item) => item._id);
+
+
+    //make sure cart is not empty: throw error otherwise
+
+    //post info to server
+    fetch('http://localhost:3000/api/products/order', 
+        {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({contact, products})
+        }
+    )
+    .then(
+        function(response) {
+            if (response.ok) 
+            {
+                return response.json();
+            } 
+            else 
+            {
+                throw new Error('Order not sent');
+            }
+        }
+    )
+    .then(
+        function(data) {
+            const confirmationNumber = data.orderId;
+            window.location.href = 'confirmation.html?confirmationNumber=' + confirmationNumber;
+        }
+    )
+    .catch(
+        error => alert('There was an error while sending the order', error)
+    )
+
 }
 
 //initialize cart page on page load
