@@ -90,7 +90,7 @@ function setEventListeners()
         console.log('Button clicked', event);
         const cart = getCart();
         //update cart if product is not same color
-        const matchedItem = cart.find(i=>i._id===productId && document.getElementById('colors').value === i.color)
+        const matchedItem = cart.find(i => i._id === productId && document.getElementById('colors').value === i.color)
         if(matchedItem)
         {
             matchedItem.quantity = document.getElementById('quantity').value;
