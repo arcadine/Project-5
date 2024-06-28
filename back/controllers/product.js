@@ -1,6 +1,10 @@
 const uuid = require('uuid/v1');
 const Product = require('../models/Product');
 
+
+//req = everything in request object
+//rest = response object, used to send info back to front end
+//next = in middleware, advance to next function in line
 exports.getAllProducts = (req, res, next) => {
   Product.find().then(
     (products) => {
