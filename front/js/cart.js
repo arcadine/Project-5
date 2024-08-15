@@ -227,6 +227,7 @@ function formValidation(event)
         function(response) {
             if (response.ok) 
             {
+                alert('Order submitted!');
                 return response.json();
             } 
             else 
