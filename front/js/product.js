@@ -104,6 +104,7 @@ function setEventListeners()
 
         //pass updated cart into cart
         setCart(cart);
+        alert('Item added to cart!');
     }
 }
 
