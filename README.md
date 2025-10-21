@@ -1,15 +1,12 @@
-# Kanap #
+# OpenClassrooms Web Development Project 5 by Diego Jorge
+Project name: "Build an E-commerce Website with JavaScript"
 
-This is the front end and back end server for Project 5 of the Web Developer path.
+# Project Objectives:
+"Manage website events with JavaScript.
+Interact with a web service using JavaScript.
+Ensure data quality using data validation and cleaning.
+Create a test plan for an application.
+On this project, you should only use Vanilla JavaScript code (pure JavaScript). The use of any JavaScript libraries or frameworks (such as React, Angular, Vue or jQuery) is prohibited for this project."
 
-### Back end Prerequisites ###
-
-You will need to have Node and `npm` installed locally on your machine.
-
-### Back end Installation ###
-
-Clone this repo. From the "back" folder of the project, run `npm install`. You 
-can then run the server with `node server`. 
-The server should run on `localhost` with default port `3000`. If the
-server runs on another port for any reason, this is printed to the
-console when the server starts, e.g. `Listening on port 3001`.
+# Project Brief:
+https://course.oc-static.com/projects/Web+Developer+P5/WD+P5+-+Functional+specifications.pdf
