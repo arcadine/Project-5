@@ -10,3 +10,6 @@ On this project, you should only use Vanilla JavaScript code (pure JavaScript). 
 
 # Project Brief:
 https://course.oc-static.com/projects/Web+Developer+P5/WD+P5+-+Functional+specifications.pdf
+
+# Project Presentation Video: 
+https://drive.google.com/file/d/1-3hBmAQ9rlRdHP7gL0g5b5PPfXTkLVu-/view?usp=drive_link
